@@ -1,0 +1,19 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+    <form action="/submit" method="POST">
+        <div class="mb-3">
+            <label for="vlogName" class="form-label">Title</label>
+            <input type="text" class="form-control" value="<%= vlog %>" name="vlogName" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="title" class="form-control description-box" required><%= vlogDes %></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Save Changes</button>
+    </form>
+
+    <a href="/" class="btn btn-link mt-4">Home</a>
+</div>
+
+<%- include('partials/footer.ejs') %>

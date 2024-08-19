@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+    <h2 class="mb-3"><%= vlog %></h2>
+    <p class="mb-4"><%= vlogDes %></p>
+
+    <div class="d-flex">
+        <form class="me-3" action="/remove" method="POST">
+            <input type="hidden" name="index" value="<%= vlogId %>" />
+            <button type="submit" class="btn btn-danger">Remove</button>
+        </form>
+        <form action="/update/<%= vlogId %>" method="POST">
+            <input type="hidden" name="index" value="<%= vlogId %>" />
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+    </div>
+    <a href="/" class="btn btn-link mt-4">Home</a>
+</div>
+
+<%- include('partials/footer.ejs') %>

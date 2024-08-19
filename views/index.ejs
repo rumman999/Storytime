@@ -1,0 +1,42 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+    <h1 class="mb-4">Story List</h1>
+
+    <ul class="list-group mb-4">
+        <% for(let i=0; i<vlogs.length; i++){ %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="/vlog/<%= i %>" class="text-decoration-none text-dark">
+                    <%= vlogs[i] %>
+                </a>
+                <div>
+                    <form class="d-inline-block me-2" action="/remove" method="POST">
+                        <input type="hidden" name="index" value="<%= i %>">
+                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                    </form>
+                    <form class="d-inline-block" action="/update/<%= i %>" method="POST">
+                        <input type="hidden" name="index" value="<%= i %>">
+                        <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                    </form>
+                </div>
+            </li>
+        <% } %>
+    </ul>
+
+    <hr><br>
+    <h2>Add Story:</h2> <br>
+
+    <form action="/submit" method="POST">
+        <div class="mb-3">
+            <label for="vlogName" class="form-label">Title</label>
+            <input type="text" class="form-control" name="vlogName" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="title" class="form-control description-box" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+<%- include('partials/footer.ejs') %>
