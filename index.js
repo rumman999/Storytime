@@ -28,6 +28,14 @@ app.get('/vlog/:id', (req, res) => {
     });
 });
 
+app.post('/save/:id', (req,res) => {
+    const vlogId = req.params.id;
+    vlogs.splice(vlogId,1,req.body["vlogName"]);
+    title.splice(vlogId,1,req.body["title"]);
+
+    res.redirect('/');
+});
+
 app.post('/update/:id', (req,res) => {
     const vlogId = req.params.id;
     const vlog = vlogs[vlogId]; 

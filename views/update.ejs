@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs') %>
 
 <div class="container">
-    <form action="/submit" method="POST">
+    <form action="/save/<%= vlogId %>" method="POST">
         <div class="mb-3">
             <label for="vlogName" class="form-label">Title</label>
             <input type="text" class="form-control" value="<%= vlog %>" name="vlogName" required>
@@ -15,5 +15,6 @@
 
     <a href="/" class="btn btn-link mt-4">Home</a>
 </div>
+</body>
 
 <%- include('partials/footer.ejs') %>
